@@ -6,14 +6,19 @@ ____
 
 Logo_Bild:
 https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Grillbert.png
+
 QR-Code Bild:
 https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/grillbert_qr.png
+
 Digidot_QR_LOGO
 https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/DigiDot_5_QR.png
+
 Sprache_json:
 https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/sprache.json
+
 Code:
 https://github.com/Digid0t/Digidot_5/main/index.html 
+
 Web:
 https://raw.githack.com/Digid0t/DigiDot_5/main/index.html
 
