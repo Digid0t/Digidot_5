@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grillbert - Der Gemeinschmecker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 50%, #a5d6a7 100%);
+            min-height: 100vh;
+            padding: 10px;
+            line-height: 1.3;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(76, 175, 80, 0.1);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #4caf50, #66bb6a, #81c784);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Vertikal zentrieren */
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .grillbert-image {
+            width: 100px; /* Etwas kleiner für bessere Balance */
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #4caf50;
+            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .grillbert-image:hover {
+            transform: scale(1.05);
+        }
+
+        .qr-code {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+            flex-shrink: 0;
+        }
+
+        .title-section {
+            flex: 1; /* Nimmt den verfügbaren Platz ein */
+            text-align: center; /* Zentriert die Überschrift */
+        }
+
+        h1 {
+            color: #2e7d32;
+            font-size: 1.5rem; /* Überschrift verkleinert */
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(46, 125, 50, 0.1);
+            line-height: 1.2;
+        }
+
+        .intro-text {
+            color: #424242;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
+            padding: 12px;
+            border-radius: 12px;
+            border-left: 4px solid #4caf50;
+            line-height: 1.3;
+        }
+
+        .rules-section {
+            margin: 15px 0;
+        }
+
+        .rules-title {
+            color: #2e7d32;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: center;
+            padding: 10px;
+            background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+            border-radius: 12px;
+            border: 2px solid #4caf50;
+        }
+
+        .rule {
+            background: white;
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 12px;
+            border-left: 4px solid #66bb6a;
+            box-shadow: 0 4px 12px rgba(102, 187, 106, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .rule-number {
+            color: #4caf50;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .rule-text {
+            color: #424242;
+            margin-top: 5px;
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+
+        .rule:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 187, 106, 0.15);
+        }
+
+        .sustainability-section {
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border: 2px solid #81c784;
+            text-align: center;
+        }
+
+        .sustainability-title {
+            color: #2e7d32;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .sustainability-text {
+            color: #424242;
+            line-height: 1.3;
+            font-size: 0.85rem;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .pdf-button {
+            background: linear-gradient(135deg, #4caf50, #66bb6a);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pdf-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+            background: linear-gradient(135deg, #388e3c, #4caf50);
+        }
+
+        .pdf-button:active {
+            transform: translateY(0);
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        .pdf-logo {
+            display: none; /* Logo auf der Webseite ausblenden */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 12px;
+                margin: 5px;
+            }
+
+            .grillbert-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .qr-code {
+                width: 60px;
+                height: 60px;
+            }
+
+            h1 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.1rem;
+            }
+
+            .grillbert-image {
+                width: 60px;
+                height: 60px;
+            }
+
+            .qr-code {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* Print Styles für PDF */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 1cm; /* Rand für den Druck definieren */
+            }
+
+            body {
+                background: white !important;
+                padding: 0 !important;
+                line-height: 1.2 !important;
+                position: relative;
+            }
+            
+            /* Abschlussrahmen für den Druck */
+            body::after {
+                content: '';
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 10px;
+                background: linear-gradient(90deg, #4caf50, #66bb6a, #81c784);
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .container {
+                box-shadow: none !important;
+                border: 2px solid #c8e6c9;
+                border-radius: 15px;
+                padding: 15px !important;
+                margin: 0 !important;
+                max-width: none !important;
+            }
+
+            .pdf-button, .footer {
+                display: none !important;
+            }
+
+            .grillbert-image,
+            .qr-code {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            /* Logo nur im Druck anzeigen und positionieren */
+            .pdf-logo {
+                display: block;
+                position: fixed;
+                bottom: 1.5cm; /* Position über dem grünen Abschlussbalken */
+                left: 50%;
+                transform: translateX(-50%);
+                width: 120px; /* Größe des Logos */
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            * {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            h1 {
+                font-size: 1.4rem !important;
+            }
+
+            .rule-text {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Grillbert.png" 
+                 alt="Grillbert" 
+                 class="grillbert-image"
+                 onerror="this.style.display='none'">
+            <div class="title-section">
+                <h1><span class="emoji">🔥</span> Willkommen am Grillplatz von Grillbert – dem Gemeinschmecker! <span class="emoji">🍴</span></h1>
+            </div>
+            <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/grillbert_qr.png" 
+                 alt="QR Code" 
+                 class="qr-code"
+                 onerror="this.style.display='none'">
+        </div>
+
+        <div class="intro-text">
+            Hier wacht Grillbert, unser fröhlicher Gemeinschaftsgrill, über die Glut der Geselligkeit. Mit seinen großen Augen, dem breiten Grinsen und dem erhobenen Zeigefinger erinnert er uns immer daran:<br>
+            <strong>Grillen macht Spaß – besonders, wenn alle mitdenken!</strong>
+            <br><br>
+            Dieser Platz gehört uns allen – ob Nachbarn, Freunde, Familien oder hungrige Spaziergänger. Grillbert steht bereit, wenn ihr gemeinsam genießen, lachen und euch eine gute Zeit machen wollt. Damit das so bleibt, gilt bei uns:
+        </div>
+
+        <div class="rules-section">
+            <div class="rules-title">
+                <span class="emoji">✅</span> Grillberts 5 goldene Regeln für alle Glutfreunde
+            </div>
+
+            <div class="rule">
+                <div class="rule-number">1. Mach's dir gemütlich – aber hinterlass es sauber!</div>
+                <div class="rule-text">Grillbert freut sich, wenn du den Grill nach dem Benutzen ordentlich auskehrst und keine Reste liegen lässt.</div>
+            </div>
+
+            <div class="rule">
+                <div class="rule-number">2. Bring deine Kohle – und deine gute Laune!</div>
+                <div class="rule-text">Jeder bringt mit, was er braucht. Der Platz ist gratis, der Spaß unbezahlbar.</div>
+            </div>
+
+            <div class="rule">
+                <div class="rule-number">3. Teile die Glut, teile die Freude!</div>
+                <div class="rule-text">Platz für alle – sprich dich mit anderen ab, wenn's mal voll ist. Grillbert liebt Gesellschaft!</div>
+            </div>
+
+            <div class="rule">
+                <div class="rule-number">4. Kühl bleiben und löschen nicht vergessen!</div>
+                <div class="rule-text">Sicherheit geht vor: Asche gut ablöschen, bevor du gehst.</div>
+            </div>
+
+            <div class="rule">
+                <div class="rule-number">5. Mach ein Foto mit Grillbert!</div>
+                <div class="rule-text">Und wenn du magst, poste es mit dem Hashtag <strong>#Gemeinschmecker</strong> – zeig der Welt, wie schön gemeinsames Grillen sein kann!</div>
+            </div>
+        </div>
+
+        <div class="sustainability-section">
+            <div class="sustainability-title">
+                <span class="emoji">🧽</span> Nachhaltiger Genuss – von allen für alle
+            </div>
+            <div class="sustainability-text">
+                Grillbert ist robust, freundlich und immer für euch da – wenn ihr auch für ihn da seid. Ein sauberer Grill ist ein Zeichen von Respekt gegenüber dem Nächsten.<br>
+                <strong>So macht's Spaß – heute, morgen und hoffentlich noch viele Sommer lang!</strong>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button class="pdf-button" onclick="generatePDF()">
+                <span class="emoji">📄</span> Als PDF speichern
+            </button>
+        </div>
+    </div>
+    
+    <!-- Dieses Logo wird NUR im PDF/Druck angezeigt -->
+    <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/nfc_scan_eckig.png" 
+         alt="NFC Scan Logo" 
+         class="pdf-logo">
+
+    <script>
+        function generatePDF() {
+            const originalTitle = document.title;
+            document.title = 'Grillbert - Gemeinschaftsgrill Regeln';
+            window.print();
+            setTimeout(() => {
+                document.title = originalTitle;
+            }, 1000);
+        }
+
+        // Fallback für Bilder, falls sie nicht laden
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.display = 'none';
+                console.log('Bild konnte nicht geladen werden:', this.src);
+            });
+        });
+    </script>
+</body>
+</html>
