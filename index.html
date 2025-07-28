@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+<!-- NEU: Das lang-Attribut wird dynamisch vom Skript gesetzt -->
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grillbert - Der Gemeinschmecker</title>
+    <!-- NEU: data-key für den Seitentitel hinzugefügt -->
+    <title data-key="pageTitle">Grillbert - Der Gemeinschmecker</title>
     <style>
         * {
             margin: 0;
@@ -50,8 +52,8 @@
         }
 
         .grillbert-image {
-            width: 100px; /* Etwas kleiner für bessere Balance */
-            height: 100px;
+            width: 220px; /* Etwas kleiner für bessere Balance */
+            height: 220px;
             border-radius: 50%;
             border: 3px solid #4caf50;
             box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
@@ -65,11 +67,12 @@
         }
 
         .qr-code {
-            width: 80px;
-            height: 80px;
+            width: 120px;
+            height: 120px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
             flex-shrink: 0;
+            margin-top:20px;
         }
 
         .title-section {
@@ -277,7 +280,8 @@
                 max-width: none !important;
             }
 
-            .pdf-button, .footer {
+             /* NEU: Sprachwechsler im Druck ausblenden */
+            .pdf-button, .footer, .language-switcher {
                 display: none !important;
             }
 
@@ -294,7 +298,7 @@
                 bottom: 0cm; /* Position über dem grünen Abschlussbalken */
                 left: 50%;
                 transform: translateX(-50%);
-                width: 180px; /* Größe des Logos */
+                width: 190px; /* Größe des Logos */
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
             }
@@ -312,17 +316,44 @@
                 font-size: 0.8rem;
             }
         }
+
+        /* NEU: Stil für den Sprachwechsler */
+        .language-switcher {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            z-index: 10;
+        }
+
+        .language-switcher select {
+            padding: 5px;
+            border-radius: 8px;
+            border: 1px solid #4caf50;
+            background-color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+
+        <!-- NEU: Sprachwechsler hinzugefügt -->
+        <div class="language-switcher">
+            <select id="lang-switcher">
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="en">🇬🇧 English</option>
+            </select>
+        </div>
+
         <div class="header">
             <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Grillbert.png"
                  alt="Grillbert"
                  class="grillbert-image"
                  onerror="this.style.display='none'">
             <div class="title-section">
-                <h1><span class="emoji">🔥</span> Willkommen am Grillplatz von Grillbert – dem Gemeinschmecker! <span class="emoji">🍴</span></h1>
+                <!-- NEU: data-key für die Übersetzung -->
+                <h1 data-key="welcomeTitle"><span class="emoji">🔥</span> Willkommen am Grillplatz von Grillbert – dem Gemeinschmecker! <span class="emoji">🍴</span></h1>
             </div>
             <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/grillbert_qr.png"
                  alt="QR Code"
@@ -330,7 +361,8 @@
                  onerror="this.style.display='none'">
         </div>
 
-        <div class="intro-text">
+        <!-- NEU: data-key für die Übersetzung -->
+        <div class="intro-text" data-key="introText">
             Hier wacht Grillbert, unser fröhlicher Gemeinschaftsgrill, über die Glut der Geselligkeit. Mit seinen großen Augen, dem breiten Grinsen und dem erhobenen Zeigefinger erinnert er uns immer daran:<br>
             <strong>Grillen macht Spaß – besonders, wenn alle mitdenken!</strong>
             <br><br>
@@ -338,48 +370,52 @@
         </div>
 
         <div class="rules-section">
-            <div class="rules-title">
+             <!-- NEU: data-key für die Übersetzung -->
+            <div class="rules-title" data-key="rulesTitle">
                 <span class="emoji">✅</span> Grillberts 5 goldene Regeln für alle Glutfreunde
             </div>
 
             <div class="rule">
-                <div class="rule-number">1. Mach's dir gemütlich – aber hinterlass es sauber!</div>
-                <div class="rule-text">Grillbert freut sich, wenn du den Grill nach dem Benutzen ordentlich auskehrst und keine Reste liegen lässt.</div>
+                <!-- NEU: data-keys für die Übersetzung -->
+                <div class="rule-number" data-key="rule1Title">1. Mach's dir gemütlich – aber hinterlass es sauber!</div>
+                <div class="rule-text" data-key="rule1Text">Grillbert freut sich, wenn du den Grill nach dem Benutzen ordentlich auskehrst und keine Reste liegen lässt.</div>
             </div>
 
             <div class="rule">
-                <div class="rule-number">2. Bring deine Kohle – und deine gute Laune!</div>
-                <div class="rule-text">Jeder bringt mit, was er braucht. Der Platz ist gratis, der Spaß unbezahlbar.</div>
+                <div class="rule-number" data-key="rule2Title">2. Bring deine Kohle – und deine gute Laune!</div>
+                <div class="rule-text" data-key="rule2Text">Jeder bringt mit, was er braucht. Der Platz ist gratis, der Spaß unbezahlbar.</div>
             </div>
 
             <div class="rule">
-                <div class="rule-number">3. Teile die Glut, teile die Freude!</div>
-                <div class="rule-text">Platz für alle – sprich dich mit anderen ab, wenn's mal voll ist. Grillbert liebt Gesellschaft!</div>
+                <div class="rule-number" data-key="rule3Title">3. Teile die Glut, teile die Freude!</div>
+                <div class="rule-text" data-key="rule3Text">Platz für alle – sprich dich mit anderen ab, wenn's mal voll ist. Grillbert liebt Gesellschaft!</div>
             </div>
 
             <div class="rule">
-                <div class="rule-number">4. Kühl bleiben und löschen nicht vergessen!</div>
-                <div class="rule-text">Sicherheit geht vor: Asche gut ablöschen, bevor du gehst.</div>
+                <div class="rule-number" data-key="rule4Title">4. Kühl bleiben und löschen nicht vergessen!</div>
+                <div class="rule-text" data-key="rule4Text">Sicherheit geht vor: Asche gut ablöschen, bevor du gehst.</div>
             </div>
 
             <div class="rule">
-                <div class="rule-number">5. Mach ein Foto mit Grillbert!</div>
-                <div class="rule-text">Und wenn du magst, poste es mit dem Hashtag <strong>#Gemeinschmecker</strong> – zeig der Welt, wie schön gemeinsames Grillen sein kann!</div>
+                <div class="rule-number" data-key="rule5Title">5. Mach ein Foto mit Grillbert!</div>
+                <div class="rule-text" data-key="rule5Text">Und wenn du magst, poste es mit dem Hashtag <strong>#Gemeinschmecker</strong> – zeig der Welt, wie schön gemeinsames Grillen sein kann!</div>
             </div>
         </div>
 
         <div class="sustainability-section">
-            <div class="sustainability-title">
+            <!-- NEU: data-keys für die Übersetzung -->
+            <div class="sustainability-title" data-key="sustainabilityTitle">
                 <span class="emoji">🧽</span> Nachhaltiger Genuss – von allen für alle
             </div>
-            <div class="sustainability-text">
+            <div class="sustainability-text" data-key="sustainabilityText">
                 Grillbert ist robust, freundlich und immer für euch da – wenn ihr auch für ihn da seid. Ein sauberer Grill ist ein Zeichen von Respekt gegenüber dem Nächsten.<br>
                 <strong>So macht's Spaß – heute, morgen und hoffentlich noch viele Sommer lang!</strong>
             </div>
         </div>
 
         <div class="footer">
-            <button class="pdf-button" onclick="generatePDF()">
+            <!-- NEU: data-key für die Übersetzung -->
+            <button class="pdf-button" onclick="generatePDF()" data-key="pdfButton">
                 <span class="emoji">📄</span> Als PDF speichern
             </button>
         </div>
@@ -391,20 +427,90 @@
          class="pdf-logo">
 
     <script>
+        // NEU: Globale Variable für Übersetzungen wird hier definiert
+        let translations = {};
+
+        // Ihre bestehende Funktion, leicht angepasst
         function generatePDF() {
             const originalTitle = document.title;
-            document.title = 'Grillbert - Gemeinschaftsgrill Regeln';
+            // NEU: Holt den PDF-Titel dynamisch aus der aktuellen Sprache
+            const currentLang = document.documentElement.lang || 'de';
+            document.title = translations[currentLang]?.pdfTitle || 'Grillbert - Gemeinschaftsgrill Regeln';
             window.print();
             setTimeout(() => {
                 document.title = originalTitle;
             }, 1000);
         }
 
-        // Fallback für Bilder, falls sie nicht laden
+        // Ihr bestehendes Fallback für Bilder. Unverändert.
         document.querySelectorAll('img').forEach(img => {
             img.addEventListener('error', function() {
                 this.style.display = 'none';
                 console.log('Bild konnte nicht geladen werden:', this.src);
+            });
+        });
+
+        // --- NEU: Das Skript für die gesamte Sprachlogik ---
+        document.addEventListener('DOMContentLoaded', async () => {
+
+            // WICHTIG: Ersetzen Sie diese URL durch den Link zu IHRER rohen sprachen.json-Datei auf GitHub!
+            const translationsUrl = 'https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/sprache.json';
+            const langSwitcher = document.getElementById('lang-switcher');
+
+            // Funktion zum Laden der Übersetzungsdatei
+            async function fetchTranslations() {
+                try {
+                    const response = await fetch(translationsUrl);
+                    if (!response.ok) {
+                        throw new Error(`Fehler beim Laden: ${response.status}`);
+                    }
+                    translations = await response.json();
+                } catch (error) {
+                    console.error("Die Übersetzungsdatei konnte nicht geladen werden.", error);
+                    // Deaktiviert den Sprachwechsler, wenn ein Fehler auftritt
+                    langSwitcher.style.display = 'none';
+                }
+            }
+
+            // Funktion, die die Sprache auf der Seite anwendet
+            function setLanguage(lang) {
+                // Stellt sicher, dass die Sprache existiert, ansonsten passiert nichts
+                if (!translations[lang]) return;
+
+                document.documentElement.lang = lang; // Setzt <html lang="...">
+
+                // Geht durch alle Elemente, die einen 'data-key' haben
+                document.querySelectorAll('[data-key]').forEach(elem => {
+                    const key = elem.getAttribute('data-key');
+                    if (translations[lang][key]) {
+                        // Verwendet .innerHTML, damit Tags wie <strong> funktionieren
+                        elem.innerHTML = translations[lang][key];
+                    }
+                });
+
+                // Speichert die Auswahl für den nächsten Besuch
+                localStorage.setItem('language', lang);
+                langSwitcher.value = lang;
+            }
+
+            // Hauptlogik beim Laden der Seite
+            await fetchTranslations();
+
+            // Findet die beste Startsprache: 1. Gespeichert, 2. Browser-Sprache, 3. Deutsch
+            const savedLang = localStorage.getItem('language');
+            const browserLang = navigator.language.split('-')[0];
+
+            if (savedLang && translations[savedLang]) {
+                setLanguage(savedLang);
+            } else if (translations[browserLang]) {
+                setLanguage(browserLang);
+            } else {
+                setLanguage('de'); // Standard-Fallback
+            }
+
+            // Event Listener für den Sprachwechsler
+            langSwitcher.addEventListener('change', (e) => {
+                setLanguage(e.target.value);
             });
         });
     </script>
