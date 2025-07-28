@@ -1,0 +1,42 @@
+{
+  "de": {
+    "pageTitle": "Grillbert - Der Gemeinschmecker",
+    "pdfTitle": "Grillbert - Gemeinschaftsgrill Regeln",
+    "welcomeTitle": "<span class=\"emoji\">🔥</span> Willkommen am Grillplatz von Grillbert – dem Gemeinschmecker! <span class=\"emoji\">🍴</span>",
+    "introText": "Hier wacht Grillbert, unser fröhlicher Gemeinschaftsgrill, über die Glut der Geselligkeit. Mit seinen großen Augen, dem breiten Grinsen und dem erhobenen Zeigefinger erinnert er uns immer daran:<br><strong>Grillen macht Spaß – besonders, wenn alle mitdenken!</strong><br><br>Dieser Platz gehört uns allen – ob Nachbarn, Freunde, Familien oder hungrige Spaziergänger. Grillbert steht bereit, wenn ihr gemeinsam genießen, lachen und euch eine gute Zeit machen wollt. Damit das so bleibt, gilt bei uns:",
+    "rulesTitle": "<span class=\"emoji\">✅</span> Grillberts 5 goldene Regeln für alle Glutfreunde",
+    "rule1Title": "1. Mach's dir gemütlich – aber hinterlass es sauber!",
+    "rule1Text": "Grillbert freut sich, wenn du den Grill nach dem Benutzen ordentlich auskehrst und keine Reste liegen lässt.",
+    "rule2Title": "2. Bring deine Kohle – und deine gute Laune!",
+    "rule2Text": "Jeder bringt mit, was er braucht. Der Platz ist gratis, der Spaß unbezahlbar.",
+    "rule3Title": "3. Teile die Glut, teile die Freude!",
+    "rule3Text": "Platz für alle – sprich dich mit anderen ab, wenn's mal voll ist. Grillbert liebt Gesellschaft!",
+    "rule4Title": "4. Kühl bleiben und löschen nicht vergessen!",
+    "rule4Text": "Sicherheit geht vor: Asche gut ablöschen, bevor du gehst.",
+    "rule5Title": "5. Mach ein Foto mit Grillbert!",
+    "rule5Text": "Und wenn du magst, poste es mit dem Hashtag <strong>#Gemeinschmecker</strong> – zeig der Welt, wie schön gemeinsames Grillen sein kann!",
+    "sustainabilityTitle": "<span class=\"emoji\">🧽</span> Nachhaltiger Genuss – von allen für alle",
+    "sustainabilityText": "Grillbert ist robust, freundlich und immer für euch da – wenn ihr auch für ihn da seid. Ein sauberer Grill ist ein Zeichen von Respekt gegenüber dem Nächsten.<br><strong>So macht's Spaß – heute, morgen und hoffentlich noch viele Sommer lang!</strong>",
+    "pdfButton": "<span class=\"emoji\">📄</span> Als PDF speichern"
+  },
+  "en": {
+    "pageTitle": "Grillbert - The Community Taster",
+    "pdfTitle": "Grillbert - Community Grill Rules",
+    "welcomeTitle": "<span class=\"emoji\">🔥</span> Welcome to Grillbert's BBQ Spot – the Community Taster! <span class=\"emoji\">🍴</span>",
+    "introText": "Here, Grillbert, our cheerful community grill, watches over the embers of conviviality. With his big eyes, wide grin, and raised finger, he always reminds us:<br><strong>Grilling is fun – especially when everyone is considerate!</strong><br><br>This place belongs to all of us – whether you're neighbors, friends, families, or hungry passersby. Grillbert is ready for you to enjoy, laugh, and have a good time together. To keep it that way, these are our rules:",
+    "rulesTitle": "<span class=\"emoji\">✅</span> Grillbert's 5 Golden Rules for all Grill Friends",
+    "rule1Title": "1. Get comfy – but leave it clean!",
+    "rule1Text": "Grillbert is happy when you properly clean the grill after use and don't leave any leftovers behind.",
+    "rule2Title": "2. Bring your charcoal – and your good mood!",
+    "rule2Text": "Everyone brings what they need. The spot is free, the fun is priceless.",
+    "rule3Title": "3. Share the embers, share the joy!",
+    "rule3Text": "There's room for everyone – please coordinate with others if it gets crowded. Grillbert loves company!",
+    "rule4Title": "4. Stay cool and don't forget to extinguish!",
+    "rule4Text": "Safety first: make sure to extinguish the ashes properly before you leave.",
+    "rule5Title": "5. Take a picture with Grillbert!",
+    "rule5Text": "And if you like, post it with the hashtag <strong>#CommunityTaster</strong> – show the world how wonderful communal grilling can be!",
+    "sustainabilityTitle": "<span class=\"emoji\">🧽</span> Sustainable Enjoyment – By Everyone, For Everyone",
+    "sustainabilityText": "Grillbert is robust, friendly, and always there for you – as long as you are there for him. A clean grill is a sign of respect for the next person.<br><strong>That's how it stays fun – today, tomorrow, and for many summers to come!</strong>",
+    "pdfButton": "<span class=\"emoji\">📄</span> Save as PDF"
+  }
+}
