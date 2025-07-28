@@ -338,13 +338,39 @@
 <body>
     <div class="container">
 
-        <!-- NEU: Sprachwechsler hinzugefügt -->
-        <div class="language-switcher">
-            <select id="lang-switcher">
-                <option value="de">🇩🇪 Deutsch</option>
-                <option value="en">🇬🇧 English</option>
-            </select>
-        </div>
+<!-- NEU: Vollständiger Sprachwechsler mit allen 26 Sprachen -->
+<div class="language-switcher">
+    <select id="lang-switcher">
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="pl">🇵🇱 Polski</option>
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="arz">🇪🇬 مصرى</option>
+        <option value="zh-cn">🇨🇳 中文 (简体)</option>
+        <option value="hi">🇮🇳 हिन्दी</option>
+        <option value="ur">🇵🇰 اردو</option>
+        <option value="fa">🇮🇷 فارسی</option>
+        <option value="he">🇮🇱 עברית</option>
+        <option value="el">🇬🇷 Ελληνικά</option>
+        <option value="ro">🇷🇴 Română</option>
+        <option value="hu">🇭🇺 Magyar</option>
+        <option value="cs">🇨🇿 Čeština</option>
+        <option value="da">🇩🇰 Dansk</option>
+        <option value="sl">🇸🇮 Slovenščina</option>
+        <option value="sw">🇰🇪 Kiswahili</option>
+        <option value="ku">🌍 Kurdî</option>
+        <option value="de-ch">🇨🇭 Schwiizerdütsch</option>
+    </select>
+</div>
+
+
 
         <div class="header">
             <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Grillbert.png"
@@ -426,93 +452,108 @@
          alt="NFC Scan Logo"
          class="pdf-logo">
 
-    <script>
-        // NEU: Globale Variable für Übersetzungen wird hier definiert
-        let translations = {};
 
-        // Ihre bestehende Funktion, leicht angepasst
-        function generatePDF() {
-            const originalTitle = document.title;
-            // NEU: Holt den PDF-Titel dynamisch aus der aktuellen Sprache
-            const currentLang = document.documentElement.lang || 'de';
-            document.title = translations[currentLang]?.pdfTitle || 'Grillbert - Gemeinschaftsgrill Regeln';
-            window.print();
-            setTimeout(() => {
-                document.title = originalTitle;
-            }, 1000);
+<script>
+    // Globale Variable für Übersetzungen. Sie wird vom Ladeskript unten gefüllt.
+    let translations = {};
+
+    // Ihre PDF-Funktion. Greift auf die globale Variable "translations" zu.
+    function generatePDF() {
+        const originalTitle = document.title;
+        const currentLang = document.documentElement.lang || 'de';
+        document.title = translations[currentLang]?.pdfTitle || 'Grillbert - Gemeinschaftsgrill Regeln';
+        window.print();
+        setTimeout(() => {
+            document.title = originalTitle;
+        }, 1000);
+    }
+
+    // Ihr Fallback für Bilder.
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+            this.style.display = 'none';
+            console.log('Bild konnte nicht geladen werden:', this.src);
+        });
+    });
+
+    // --- Das finale Skript für die gesamte Sprachlogik ---
+    document.addEventListener('DOMContentLoaded', async () => {
+
+        // Die URL zu Ihrer JSON-Datei auf GitHub
+        const translationsUrl = 'https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/sprache.json';
+        const langSwitcher = document.getElementById('lang-switcher');
+
+        // Funktion zum Laden der Übersetzungsdatei
+        async function fetchTranslations() {
+            try {
+                const response = await fetch(translationsUrl);
+                if (!response.ok) {
+                    throw new Error(`Fehler beim Laden: ${response.status}`);
+                }
+                // Füllt die GLOBALE Variable "translations"
+                translations = await response.json();
+            } catch (error) {
+                console.error("Die Übersetzungsdatei konnte nicht geladen werden.", error);
+                if (langSwitcher) langSwitcher.style.display = 'none';
+            }
         }
 
-        // Ihr bestehendes Fallback für Bilder. Unverändert.
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('error', function() {
-                this.style.display = 'none';
-                console.log('Bild konnte nicht geladen werden:', this.src);
-            });
-        });
+        // Funktion, die die Sprache auf der Seite anwendet
+        function setLanguage(lang) {
+            if (!translations[lang]) {
+                console.warn(`Sprache "${lang}" nicht gefunden, falle auf "de" zurück.`);
+                lang = 'de';
+            }
 
-        // --- NEU: Das Skript für die gesamte Sprachlogik ---
-        document.addEventListener('DOMContentLoaded', async () => {
-
-            // WICHTIG: Ersetzen Sie diese URL durch den Link zu IHRER rohen sprachen.json-Datei auf GitHub!
-            const translationsUrl = 'https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/sprache.json';
-            const langSwitcher = document.getElementById('lang-switcher');
-
-            // Funktion zum Laden der Übersetzungsdatei
-            async function fetchTranslations() {
-                try {
-                    const response = await fetch(translationsUrl);
-                    if (!response.ok) {
-                        throw new Error(`Fehler beim Laden: ${response.status}`);
-                    }
-                    translations = await response.json();
-                } catch (error) {
-                    console.error("Die Übersetzungsdatei konnte nicht geladen werden.", error);
-                    // Deaktiviert den Sprachwechsler, wenn ein Fehler auftritt
-                    langSwitcher.style.display = 'none';
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    elem.innerHTML = translations[lang][key];
                 }
-            }
+            });
 
-            // Funktion, die die Sprache auf der Seite anwendet
-            function setLanguage(lang) {
-                // Stellt sicher, dass die Sprache existiert, ansonsten passiert nichts
-                if (!translations[lang]) return;
+            localStorage.setItem('language', lang);
+            if (langSwitcher) langSwitcher.value = lang;
+        }
 
-                document.documentElement.lang = lang; // Setzt <html lang="...">
+        // --- Haupt-Logik zur Sprachauswahl ---
 
-                // Geht durch alle Elemente, die einen 'data-key' haben
-                document.querySelectorAll('[data-key]').forEach(elem => {
-                    const key = elem.getAttribute('data-key');
-                    if (translations[lang][key]) {
-                        // Verwendet .innerHTML, damit Tags wie <strong> funktionieren
-                        elem.innerHTML = translations[lang][key];
-                    }
-                });
+        // 1. Zuerst die Übersetzungen laden und abwarten.
+        await fetchTranslations();
 
-                // Speichert die Auswahl für den nächsten Besuch
-                localStorage.setItem('language', lang);
-                langSwitcher.value = lang;
-            }
-
-            // Hauptlogik beim Laden der Seite
-            await fetchTranslations();
-
-            // Findet die beste Startsprache: 1. Gespeichert, 2. Browser-Sprache, 3. Deutsch
+        // Funktion, um die beste Startsprache zu ermitteln.
+        function getInitialLanguage() {
+            // Priorität 1: Bereits gespeicherte Sprache des Benutzers
             const savedLang = localStorage.getItem('language');
-            const browserLang = navigator.language.split('-')[0];
-
             if (savedLang && translations[savedLang]) {
-                setLanguage(savedLang);
-            } else if (translations[browserLang]) {
-                setLanguage(browserLang);
-            } else {
-                setLanguage('de'); // Standard-Fallback
+                return savedLang;
             }
 
-            // Event Listener für den Sprachwechsler
+            // Priorität 2: Beste Übereinstimmung mit den Browser-Sprachen finden
+            for (const browserLang of navigator.languages) {
+                const langCode = browserLang.toLowerCase();
+                const baseLangCode = langCode.split('-')[0];
+
+                if (translations[langCode]) return langCode;
+                if (translations[baseLangCode]) return baseLangCode;
+            }
+
+            // Priorität 3: Standard-Fallback auf Deutsch
+            return 'de';
+        }
+
+        // 2. Die Startsprache ermitteln und anwenden.
+        const initialLang = getInitialLanguage();
+        setLanguage(initialLang);
+
+        // 3. Den Event-Listener für den Sprachwechsler aktivieren.
+        if (langSwitcher) {
             langSwitcher.addEventListener('change', (e) => {
                 setLanguage(e.target.value);
             });
-        });
-    </script>
+        }
+    });
+</script>
 </body>
 </html>
