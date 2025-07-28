@@ -254,7 +254,7 @@
                 line-height: 1.2 !important;
                 position: relative;
             }
-            
+
             /* Abschlussrahmen für den Druck */
             body::after {
                 content: '';
@@ -286,15 +286,15 @@
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
             }
-            
+
             /* Logo nur im Druck anzeigen und positionieren */
             .pdf-logo {
                 display: block;
                 position: fixed;
-                bottom: 1.5cm; /* Position über dem grünen Abschlussbalken */
+                bottom: 0cm; /* Position über dem grünen Abschlussbalken */
                 left: 50%;
                 transform: translateX(-50%);
-                width: 140px; /* Größe des Logos */
+                width: 180px; /* Größe des Logos */
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
             }
@@ -317,15 +317,15 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Grillbert.png" 
-                 alt="Grillbert" 
+            <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Grillbert.png"
+                 alt="Grillbert"
                  class="grillbert-image"
                  onerror="this.style.display='none'">
             <div class="title-section">
                 <h1><span class="emoji">🔥</span> Willkommen am Grillplatz von Grillbert – dem Gemeinschmecker! <span class="emoji">🍴</span></h1>
             </div>
-            <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/grillbert_qr.png" 
-                 alt="QR Code" 
+            <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/grillbert_qr.png"
+                 alt="QR Code"
                  class="qr-code"
                  onerror="this.style.display='none'">
         </div>
@@ -384,10 +384,10 @@
             </button>
         </div>
     </div>
-    
+
     <!-- Dieses Logo wird NUR im PDF/Druck angezeigt -->
-    <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Digidot_QR_5.png" 
-         alt="NFC Scan Logo" 
+    <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/DigiDot_5_QR.png"
+         alt="NFC Scan Logo"
          class="pdf-logo">
 
     <script>
