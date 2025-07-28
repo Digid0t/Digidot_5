@@ -1,18 +1,29 @@
 # Digidot_5
-Grillbert - für eine zufriedene Grillgemeinschaft 
 
-Absolut! Hier ist ein vollständiger und verständlicher Entwurf für Ihre `README.md`-Datei auf GitHub. Sie ist so geschrieben, dass sie auch für Personen mit wenig Programmiererfahrung leicht nachvollziehbar ist.
+# Grillbert - für eine zufriedene Grillgemeinschaft  🔥
 
-Sie können den gesamten folgenden Text kopieren und direkt in eine `README.md`-Datei in Ihrem GitHub-Repository einfügen.
+____
 
----
+Logo_Bild:
+https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Grillbert.png
+QR-Code Bild:
+https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/grillbert_qr.png
+Digidot_QR_LOGO
+https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/DigiDot_5_QR.png
+Sprache_json:
+https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/sprache.json
+Code:
+https://github.com/Digid0t/Digidot_5/main/index.html 
+Web:
+https://raw.githack.com/Digid0t/DigiDot_5/main/index.html
 
-# Grillbert – Der mehrsprachige Gemeinschaftsgrill 🔥
+____
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Grillbert.png" alt="Grillbert" width="300"/>
 </p>
 
+____
 
 Willkommen beim digitalen Aushängeschild für Grillbert! Dies ist ein superleichtes, eigenständiges Webprojekt, das als digitale Willkommens- und Informationstafel für einen realen, öffentlichen Grillplatz dient. Es ist darauf ausgelegt, von jedem Smartphone aus per QR-Code aufgerufen zu werden.
 
