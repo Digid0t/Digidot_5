@@ -9,7 +9,9 @@ Sie können den gesamten folgenden Text kopieren und direkt in eine `README.md`-
 
 # Grillbert – Der mehrsprachige Gemeinschaftsgrill 🔥
 
-<img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Grillbert.png" alt="Grillbert" width="200" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Grillbert.png" alt="Grillbert" width="300"/>
+</p>
 
 
 Willkommen beim digitalen Aushängeschild für Grillbert! Dies ist ein superleichtes, eigenständiges Webprojekt, das als digitale Willkommens- und Informationstafel für einen realen, öffentlichen Grillplatz dient. Es ist darauf ausgelegt, von jedem Smartphone aus per QR-Code aufgerufen zu werden.
