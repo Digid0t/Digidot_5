@@ -136,3 +136,13 @@ Das ist das Gehirn der ganzen Operation. Wenn die Webseite lädt, passiert Folge
 3.  **Der Kellner serviert die Gerichte:**
     Sobald die Sprache feststeht, läuft der Kellner durch das ganze Restaurant (`setLanguage()`). Er schaut sich jedes Element mit einem `data-key`-Schild an, sucht den passenden Text im Kochbuch (`translations[sprache][key]`) und setzt ihn an der richtigen Stelle ein (`elem.innerHTML = ...`).
 
+_____
+
+![Grillbert_der_Gemeinschmecker](https://raw.githubusercontent.com/Digid0t/DigiDot_5/main Grillbert_Der_Gemeinschmecker.png)
+
+
+_____
+
+<img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/DigiDot_5_QR.png" alt="DigiDot 5 QR Code" width="300">
+
+____
