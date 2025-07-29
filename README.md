@@ -143,6 +143,7 @@ _____
 
 _____
 
-<img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/DigiDot_5_QR.png" alt="DigiDot 5 QR Code" width="300">
-
+<p align="center">
+ <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/DigiDot_5_QR.png" alt="DigiDot 5 QR Code" width="300">
+</p>
 ____
