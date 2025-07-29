@@ -8,18 +8,58 @@
     <title data-key="pageTitle">Grillbert - Der Gemeinschmecker</title>
     <style>
         * {
-            margin: 20;
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 50%, #a5d6a7 100%);
-            min-height: 100vh;
-            padding: 10px;
-            line-height: 1.3;
-        }
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 50%, #a5d6a7 100%);
+    min-height: 100vh;
+    padding: 10px;
+    line-height: 1.3;
+    /* Korrekt: Padding oben, damit der Inhalt nicht verdeckt wird */
+    padding-top: 60px;
+}
+
+/* Sprachmenü für Desktop-Ansicht (zentriert) */
+.language-switcher {
+    position: fixed;
+    top: 10px;
+    left: 50%; /* NEU: Position von links auf 50% setzen */
+    transform: translateX(-50%); /* NEU: Um die halbe eigene Breite zurückschieben */
+    z-index: 1000;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 2px;
+}
+
+.language-switcher select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #4caf50;
+    background-color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+/* Anpassung für mobile Geräte (rechtsbündig und kleiner) */
+@media (max-width: 768px) {
+    .language-switcher {
+        left: auto; /* Zentrierung aufheben */
+        transform: none; /* Transformation zurücksetzen */
+        right: 10px; /* Wieder rechts positionieren */
+    }
+
+    .language-switcher select {
+        font-size: 0.8rem; /* Kleinere Schrift für mobile Geräte */
+        padding: 5px 8px;
+        min-width: auto; /* Mindestbreite entfernen, damit er schmaler werden kann */
+    }
+}
 
         .container {
             max-width: 800px;
@@ -46,13 +86,13 @@
         .header {
             display: flex;
             justify-content: space-between;
-            align-items: center; /* Vertikal zentrieren */
+            align-items: center;
             margin-bottom: 15px;
             gap: 15px;
         }
 
         .grillbert-image {
-            width: 220px; /* Etwas kleiner für bessere Balance */
+            width: 220px;
             height: 220px;
             border-radius: 50%;
             border: 3px solid #4caf50;
@@ -60,7 +100,7 @@
             object-fit: contain;
             transition: transform 0.3s ease;
             flex-shrink: 0;
-            margin-top:15px;
+            margin-top: 15px;
         }
 
         .grillbert-image:hover {
@@ -73,17 +113,17 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
             flex-shrink: 0;
-            margin-top:0px;
+            margin-top: 0px;
         }
 
         .title-section {
-            flex: 1; /* Nimmt den verfügbaren Platz ein */
-            text-align: center; /* Zentriert die Überschrift */
+            flex: 1;
+            text-align: center;
         }
 
         h1 {
             color: #2e7d32;
-            font-size: 1.5rem; /* Überschrift verkleinert */
+            font-size: 1.5rem;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(46, 125, 50, 0.1);
             line-height: 1.2;
@@ -204,11 +244,17 @@
         }
 
         .pdf-logo {
-            display: none; /* Logo auf der Webseite ausblenden */
+            display: none;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            body {
+                padding: 5px;
+                /* NEU: Mehr Platz für das Sprachmenü auf mobilen Geräten */
+                padding-top: 70px;
+            }
+
             .container {
                 padding: 12px;
                 margin: 5px;
@@ -227,9 +273,29 @@
             h1 {
                 font-size: 1.2rem;
             }
+
+            /* NEU: Sprachmenü auf mobilen Geräten anpassen */
+            .language-switcher {
+                top: 5px;
+                right: 5px;
+                left: 5px;
+                text-align: center;
+            }
+
+            .language-switcher select {
+                font-size: 0.85rem;
+                padding: 6px 8px;
+                width: 100%;
+                max-width: 200px;
+            }
         }
 
         @media (max-width: 480px) {
+            body {
+                /* NEU: Noch mehr Platz für sehr kleine Bildschirme */
+                padding-top: 75px;
+            }
+
             h1 {
                 font-size: 1.1rem;
             }
@@ -243,24 +309,18 @@
                 width: 50px;
                 height: 50px;
             }
-        }
-        /* Anpassung für den Sprachwechsler auf kleineren Bildschirmen */
-@media (max-width: 768px) {
-    .language-switcher {
-        top: 10px; /* Position leicht anpassen */
-        right: 10px;
-    }
 
-    .language-switcher select {
-        font-size: 0.8rem; /* Schriftgröße verkleinern */
-        padding: 3px 5px;  /* Innenabstand reduzieren */
-    }
+            .language-switcher select {
+                font-size: 0.8rem;
+                padding: 5px 6px;
+            }
+        }
 
         /* Print Styles für PDF */
         @media print {
             @page {
                 size: A4 portrait;
-                margin: 1cm; /* Rand für den Druck definieren */
+                margin: 1cm;
             }
 
             body {
@@ -270,7 +330,6 @@
                 position: relative;
             }
 
-            /* Abschlussrahmen für den Druck */
             body::after {
                 content: '';
                 position: fixed;
@@ -292,7 +351,6 @@
                 max-width: none !important;
             }
 
-             /* NEU: Sprachwechsler im Druck ausblenden */
             .pdf-button, .footer, .language-switcher {
                 display: none !important;
             }
@@ -303,14 +361,13 @@
                 -webkit-print-color-adjust: exact;
             }
 
-            /* Logo nur im Druck anzeigen und positionieren */
             .pdf-logo {
                 display: block;
                 position: fixed;
-                bottom: 0cm; /* Position über dem grünen Abschlussbalken */
+                bottom: 0cm;
                 left: 50%;
                 transform: translateX(-50%);
-                width: 190px; /* Größe des Logos */
+                width: 190px;
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
             }
@@ -328,69 +385,48 @@
                 font-size: 0.8rem;
             }
         }
-
-        /* NEU: Stil für den Sprachwechsler */
-        .language-switcher {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            z-index: 10;
-        }
-
-        .language-switcher select {
-            padding: 5px;
-            border-radius: 8px;
-            border: 1px solid #4caf50;
-            background-color: white;
-            font-size: 1rem;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
+    <!-- NEU: Sprachmenü ist jetzt außerhalb des Containers und fix positioniert -->
+    <div class="language-switcher">
+        <select id="lang-switcher">
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="it">🇮🇹 Italiano</option>
+            <option value="pt">🇵🇹 Português</option>
+            <option value="nl">🇳🇱 Nederlands</option>
+            <option value="pl">🇵🇱 Polski</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="tr">🇹🇷 Türkçe</option>
+            <option value="ar">🇸🇦 العربية</option>
+            <option value="arz">🇪🇬 مصرى</option>
+            <option value="zh-cn">🇨🇳 中文 (简体)</option>
+            <option value="hi">🇮🇳 हिन्दी</option>
+            <option value="ur">🇵🇰 اردو</option>
+            <option value="fa">🇮🇷 فارسی</option>
+            <option value="he">🇮🇱 עברית</option>
+            <option value="el">🇬🇷 Ελληνικά</option>
+            <option value="ro">🇷🇴 Română</option>
+            <option value="hu">🇭🇺 Magyar</option>
+            <option value="cs">🇨🇿 Čeština</option>
+            <option value="da">🇩🇰 Dansk</option>
+            <option value="sl">🇸🇮 Slovenščina</option>
+            <option value="sw">🇰🇪 Kiswahili</option>
+            <option value="ku">🌍 Kurdî</option>
+            <option value="de-ch">🇨🇭 Schwiizerdütsch</option>
+        </select>
+    </div>
+
     <div class="container">
-
-<!-- NEU: Vollständiger Sprachwechsler mit allen 26 Sprachen -->
-<div class="language-switcher">
-    <select id="lang-switcher">
-        <option value="de">🇩🇪 Deutsch</option>
-        <option value="en">🇬🇧 English</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="it">🇮🇹 Italiano</option>
-        <option value="pt">🇵🇹 Português</option>
-        <option value="nl">🇳🇱 Nederlands</option>
-        <option value="pl">🇵🇱 Polski</option>
-        <option value="ru">🇷🇺 Русский</option>
-        <option value="tr">🇹🇷 Türkçe</option>
-        <option value="ar">🇸🇦 العربية</option>
-        <option value="arz">🇪🇬 مصرى</option>
-        <option value="zh-cn">🇨🇳 中文 (简体)</option>
-        <option value="hi">🇮🇳 हिन्दी</option>
-        <option value="ur">🇵🇰 اردو</option>
-        <option value="fa">🇮🇷 فارسی</option>
-        <option value="he">🇮🇱 עברית</option>
-        <option value="el">🇬🇷 Ελληνικά</option>
-        <option value="ro">🇷🇴 Română</option>
-        <option value="hu">🇭🇺 Magyar</option>
-        <option value="cs">🇨🇿 Čeština</option>
-        <option value="da">🇩🇰 Dansk</option>
-        <option value="sl">🇸🇮 Slovenščina</option>
-        <option value="sw">🇰🇪 Kiswahili</option>
-        <option value="ku">🌍 Kurdî</option>
-        <option value="de-ch">🇨🇭 Schwiizerdütsch</option>
-    </select>
-</div>
-
-
-
         <div class="header">
             <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Grillbert.png"
                  alt="Grillbert"
                  class="grillbert-image"
                  onerror="this.style.display='none'">
             <div class="title-section">
-                <!-- NEU: data-key für die Übersetzung -->
                 <h1 data-key="welcomeTitle"><span class="emoji">🔥</span> Willkommen am Grillplatz von Grillbert – dem Gemeinschmecker! <span class="emoji">🍴</span></h1>
             </div>
             <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/grillbert_qr.png"
@@ -399,7 +435,6 @@
                  onerror="this.style.display='none'">
         </div>
 
-        <!-- NEU: data-key für die Übersetzung -->
         <div class="intro-text" data-key="introText">
             Hier wacht Grillbert, unser fröhlicher Gemeinschaftsgrill, über die Glut der Geselligkeit. Mit seinen großen Augen, dem breiten Grinsen und dem erhobenen Zeigefinger erinnert er uns immer daran:<br>
             <strong>Grillen macht Spaß – besonders, wenn alle mitdenken!</strong>
@@ -408,13 +443,11 @@
         </div>
 
         <div class="rules-section">
-             <!-- NEU: data-key für die Übersetzung -->
             <div class="rules-title" data-key="rulesTitle">
                 <span class="emoji">✅</span> Grillberts 5 goldene Regeln für alle Glutfreunde
             </div>
 
             <div class="rule">
-                <!-- NEU: data-keys für die Übersetzung -->
                 <div class="rule-number" data-key="rule1Title">1. Mach's dir gemütlich – aber hinterlass es sauber!</div>
                 <div class="rule-text" data-key="rule1Text">Grillbert freut sich, wenn du den Grill nach dem Benutzen ordentlich auskehrst und keine Reste liegen lässt.</div>
             </div>
@@ -441,7 +474,6 @@
         </div>
 
         <div class="sustainability-section">
-            <!-- NEU: data-keys für die Übersetzung -->
             <div class="sustainability-title" data-key="sustainabilityTitle">
                 <span class="emoji">🧽</span> Nachhaltiger Genuss – von allen für alle
             </div>
@@ -452,24 +484,19 @@
         </div>
 
         <div class="footer">
-            <!-- NEU: data-key für die Übersetzung -->
             <button class="pdf-button" onclick="generatePDF()" data-key="pdfButton">
                 <span class="emoji">📄</span> Als PDF speichern
             </button>
         </div>
     </div>
 
-    <!-- Dieses Logo wird NUR im PDF/Druck angezeigt -->
     <img src="https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/DigiDot_5_QR.png"
          alt="NFC Scan Logo"
          class="pdf-logo">
 
-
 <script>
-    // Globale Variable für Übersetzungen. Sie wird vom Ladeskript unten gefüllt.
     let translations = {};
 
-    // Ihre PDF-Funktion. Greift auf die globale Variable "translations" zu.
     function generatePDF() {
         const originalTitle = document.title;
         const currentLang = document.documentElement.lang || 'de';
@@ -480,7 +507,6 @@
         }, 1000);
     }
 
-    // Ihr Fallback für Bilder.
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('error', function() {
             this.style.display = 'none';
@@ -488,21 +514,16 @@
         });
     });
 
-    // --- Das finale Skript für die gesamte Sprachlogik ---
     document.addEventListener('DOMContentLoaded', async () => {
-
-        // Die URL zu Ihrer JSON-Datei auf GitHub
         const translationsUrl = 'https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/sprache.json';
         const langSwitcher = document.getElementById('lang-switcher');
 
-        // Funktion zum Laden der Übersetzungsdatei
         async function fetchTranslations() {
             try {
                 const response = await fetch(translationsUrl);
                 if (!response.ok) {
                     throw new Error(`Fehler beim Laden: ${response.status}`);
                 }
-                // Füllt die GLOBALE Variable "translations"
                 translations = await response.json();
             } catch (error) {
                 console.error("Die Übersetzungsdatei konnte nicht geladen werden.", error);
@@ -510,7 +531,6 @@
             }
         }
 
-        // Funktion, die die Sprache auf der Seite anwendet
         function setLanguage(lang) {
             if (!translations[lang]) {
                 console.warn(`Sprache "${lang}" nicht gefunden, falle auf "de" zurück.`);
@@ -529,20 +549,14 @@
             if (langSwitcher) langSwitcher.value = lang;
         }
 
-        // --- Haupt-Logik zur Sprachauswahl ---
-
-        // 1. Zuerst die Übersetzungen laden und abwarten.
         await fetchTranslations();
 
-        // Funktion, um die beste Startsprache zu ermitteln.
         function getInitialLanguage() {
-            // Priorität 1: Bereits gespeicherte Sprache des Benutzers
             const savedLang = localStorage.getItem('language');
             if (savedLang && translations[savedLang]) {
                 return savedLang;
             }
 
-            // Priorität 2: Beste Übereinstimmung mit den Browser-Sprachen finden
             for (const browserLang of navigator.languages) {
                 const langCode = browserLang.toLowerCase();
                 const baseLangCode = langCode.split('-')[0];
@@ -551,15 +565,12 @@
                 if (translations[baseLangCode]) return baseLangCode;
             }
 
-            // Priorität 3: Standard-Fallback auf Deutsch
             return 'de';
         }
 
-        // 2. Die Startsprache ermitteln und anwenden.
         const initialLang = getInitialLanguage();
         setLanguage(initialLang);
 
-        // 3. Den Event-Listener für den Sprachwechsler aktivieren.
         if (langSwitcher) {
             langSwitcher.addEventListener('change', (e) => {
                 setLanguage(e.target.value);
