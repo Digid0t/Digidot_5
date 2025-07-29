@@ -17,7 +17,7 @@ Sprache_json:
 https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/sprache.json
 
 Code:
-https://github.com/Digid0t/Digidot_5/main/index.html 
+https://github.com/Digid0t/Digidot_5/blob/main/index.html
 
 Web:
 https://raw.githack.com/Digid0t/DigiDot_5/main/index.html
