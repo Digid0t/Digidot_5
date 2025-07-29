@@ -138,7 +138,7 @@ Das ist das Gehirn der ganzen Operation. Wenn die Webseite lädt, passiert Folge
 
 _____
 
-![Grillbert_der_Gemeinschmecker](https://raw.githubusercontent.com/Digid0t/DigiDot_5/main Grillbert_Der_Gemeinschmecker.png)
+![Grillbert_der_Gemeinschmecker](https://raw.githubusercontent.com/Digid0t/DigiDot_5/main/Grillbert_Der_Gemeinschmecker.png)
 
 
 _____
